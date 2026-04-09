@@ -1,0 +1,18 @@
+{
+    "models": {
+        "test_model_v1": {
+            "name": "test_model",
+            "version": "v1",
+            "path": "tests\\test_model_v1.pkl",
+            "timestamp": "2026-04-09T15:02:06.502894",
+            "metrics": {
+                "accuracy": 0.85,
+                "f1": 0.83
+            },
+            "hyperparameters": {
+                "random_state": 42
+            }
+        }
+    },
+    "best_model": null
+}

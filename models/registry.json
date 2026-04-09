@@ -1,0 +1,140 @@
+{
+    "models": {
+        "logistic_regression_v1": {
+            "name": "logistic_regression",
+            "version": "v1",
+            "path": "models\\logistic_regression_v1.pkl",
+            "timestamp": "2026-02-23T22:47:08.043511",
+            "metrics": {
+                "model_name": "logistic_regression",
+                "accuracy": 0.8905995106035889,
+                "precision": 0.37209302325581395,
+                "recall": 0.015065913370998116,
+                "f1": 0.02895927601809955,
+                "roc_auc": 0.6665523286835886,
+                "confusion_matrix": [
+                    [
+                        8719,
+                        27
+                    ],
+                    [
+                        1046,
+                        16
+                    ]
+                ],
+                "tn": 8719,
+                "fp": 27,
+                "fn": 1046,
+                "tp": 16
+            },
+            "hyperparameters": {
+                "max_iter": 1000,
+                "random_state": 42
+            }
+        },
+        "random_forest_v1": {
+            "name": "random_forest",
+            "version": "v1",
+            "path": "models\\random_forest_v1.pkl",
+            "timestamp": "2026-04-09T16:49:18.295189",
+            "metrics": {
+                "model_name": "random_forest",
+                "accuracy": 0.772888573456352,
+                "precision": 0.5594713656387665,
+                "recall": 0.679144385026738,
+                "f1": 0.6135265700483091,
+                "roc_auc": 0.8280658244852618,
+                "confusion_matrix": [
+                    [
+                        835,
+                        200
+                    ],
+                    [
+                        120,
+                        254
+                    ]
+                ],
+                "tn": 835,
+                "fp": 200,
+                "fn": 120,
+                "tp": 254
+            },
+            "hyperparameters": {
+                "n_estimators": 100,
+                "max_depth": 15,
+                "min_samples_split": 10,
+                "min_samples_leaf": 5,
+                "class_weight": "balanced"
+            }
+        },
+        "lightgbm_v1": {
+            "name": "lightgbm",
+            "version": "v1",
+            "path": "models\\lightgbm_v1.pkl",
+            "timestamp": "2026-04-09T16:15:26.588212",
+            "metrics": {
+                "model_name": "lightgbm",
+                "accuracy": 0.89805,
+                "precision": 0.2711864406779661,
+                "recall": 0.007952286282306162,
+                "f1": 0.01545147271849348,
+                "roc_auc": 0.6695787582709215,
+                "confusion_matrix": [
+                    [
+                        17945,
+                        43
+                    ],
+                    [
+                        1996,
+                        16
+                    ]
+                ],
+                "tn": 17945,
+                "fp": 43,
+                "fn": 1996,
+                "tp": 16
+            },
+            "hyperparameters": {
+                "n_estimators": 200,
+                "max_depth": 10,
+                "learning_rate": 0.1,
+                "class_weight": "balanced"
+            }
+        },
+        "xgboost_v1": {
+            "name": "xgboost",
+            "version": "v1",
+            "path": "models\\xgboost_v1.pkl",
+            "timestamp": "2026-04-09T16:37:53.547946",
+            "metrics": {
+                "model_name": "xgboost",
+                "accuracy": 0.69365,
+                "precision": 0.16441037351166204,
+                "recall": 0.5009940357852882,
+                "f1": 0.2475746039543166,
+                "roc_auc": 0.6615259935826447,
+                "confusion_matrix": [
+                    [
+                        12865,
+                        5123
+                    ],
+                    [
+                        1004,
+                        1008
+                    ]
+                ],
+                "tn": 12865,
+                "fp": 5123,
+                "fn": 1004,
+                "tp": 1008
+            },
+            "hyperparameters": {
+                "n_estimators": 200,
+                "max_depth": 7,
+                "learning_rate": 0.1,
+                "scale_pos_weight": 8
+            }
+        }
+    },
+    "best_model": "random_forest_v1"
+}

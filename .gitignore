@@ -1,0 +1,59 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Model files (large binaries)
+models/*.pkl
+models/*.joblib
+
+# Data (large files)
+data/raw/
+data/processed/*.csv
+
+# Experiments (generated outputs)
+experiments/*.json
+experiments/*.pkl
+
+# Logs
+logs/
+*.log
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Environment
+.env
+.env.local
+
+# Pytest cache
+.pytest_cache/
+
+# Temp
+temp/
+tmp/

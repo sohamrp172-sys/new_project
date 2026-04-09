@@ -1,0 +1,69 @@
+# ML Pipeline Configuration
+
+data:
+  # WA Telco dataset — 7K rows, clean schema, strong signal (contract predicts churn well)
+  primary_dataset: "data/raw/WA_Fn-UseC_-Telco-Customer-Churn (1).csv"
+  sample_size: null   # use full dataset (only 7K rows)
+  test_size: 0.2
+  random_state: 42
+
+preprocessing:
+  missing_value_threshold: 0.5  # Drop columns with >50% missing
+  handle_imbalance: true
+  imbalance_method: "smote"  # Options: smote, class_weight, both
+
+feature_engineering:
+  selection_method: "tree_importance"  # Options: correlation, tree_importance, mutual_info
+  n_features: 20
+  create_interactions: true
+  create_domain_features: true
+
+models:
+  train_models:
+    - logistic_regression
+    - random_forest
+    - xgboost
+    - lightgbm
+  
+  hyperparameter_tuning:
+    enabled: false
+    method: "randomized"  # Options: grid, randomized
+    cv_folds: 3
+    n_iter: 20  # For randomized search
+  
+  optimization_metric: "f1"  # FIX: f1 is better than roc_auc for imbalanced churn data
+  
+  # Model-specific configs
+  logistic_regression:
+    max_iter: 1000
+    class_weight: "balanced"
+  
+  random_forest:
+    n_estimators: [100, 200]
+    max_depth: [10, 15, 20]
+    min_samples_split: [5, 10]
+    min_samples_leaf: [2, 5]
+    class_weight: "balanced"
+  
+  xgboost:
+    n_estimators: [100, 200]
+    max_depth: [5, 7, 10]
+    learning_rate: [0.01, 0.1, 0.3]
+    scale_pos_weight: 8  # Ratio of negative to positive class
+  
+  lightgbm:
+    n_estimators: [100, 200]
+    max_depth: [5, 10, 15]
+    learning_rate: [0.01, 0.1]
+    class_weight: "balanced"
+
+monitoring:
+  drift_threshold: 0.15
+  performance_threshold: 0.6  # Min ROC-AUC
+  check_frequency: "daily"
+
+api:
+  host: "0.0.0.0"
+  port: 8000
+  enable_shap: true  # Return SHAP explanations with predictions
+  log_predictions: true
